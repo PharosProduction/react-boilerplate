@@ -1,0 +1,23 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "env": {
+    "development": {
+      "plugins": [
+        "@babel/plugin-transform-runtime", 
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-export-default-from",
+        "@babel/plugin-transform-react-display-name",
+        "@babel/plugin-proposal-object-rest-spread"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "@babel/plugin-transform-runtime", 
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-export-default-from",
+        "@babel/plugin-transform-react-display-name",
+        "@babel/plugin-proposal-object-rest-spread"
+      ]
+    }
+  }
+}
