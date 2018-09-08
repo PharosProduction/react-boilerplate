@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  context: __dirname,
   entry: [
     "@babel/polyfill",
     path.resolve(__dirname, '../src', 'index.js')
@@ -12,7 +13,6 @@ module.exports = {
       src: path.resolve(__dirname, '../src'),
     }
   },
-  context: __dirname,
   module: {
     rules: [
       {
@@ -37,7 +37,6 @@ module.exports = {
       },
       {
         test: /\.(css|scss|sass)$/i,
-        exclude: /(node_modules|bower_components)/,
         include: [
           path.join(__dirname, '../src'),
           path.join(__dirname, '../node_modules')

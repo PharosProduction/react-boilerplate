@@ -18,10 +18,6 @@ try {
 module.exports = merge.smart(config, {
   devtool: 'source-map',
   mode: 'development',
-  entry: [
-    'webpack-hot-middleware/client',
-    `webpack-dev-server/client?http://${host}:${port}"`
-  ],
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
@@ -33,10 +29,13 @@ module.exports = merge.smart(config, {
     contentBase: path.join(__dirname, '../public'),
     historyApiFallback: true,
     https: false,
-    noInfo: true
+    noInfo: true,
+    hot: false,
+    proxy: {
+      "/api/*": "http://localhost:4000"
+    }
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
